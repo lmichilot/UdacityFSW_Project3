@@ -22,11 +22,15 @@ This project consists for the following files:
 
 ## How to Run Project
 
-Download the project zip file to you computer or clone this
-repository to your desktop.
-
-Navigate to the project directory and type in the following command:
-python reporting.py 
+* Install Vagrant and VirtualBox
+* Clone this repository
+* Unzip file `"newsdata.zip"`. The file inside is called newsdata.sql. 
+  Put this file into the vagrant directory, which is shared with your virtual 
+  machine.
+* Launch Vagrant VM by running `vagrant up`, you can the log in with `vagrant ssh`  
+* To load the data, use the command `psql -d news -f newsdata.sql`
+* Navigate to the project directory and type `python reporting.py` from the command
+  line. 
 
 
 

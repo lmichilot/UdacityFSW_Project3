@@ -7,13 +7,13 @@ que2 = '2. Who are the most popular article authors of all time?'
 que3 = '3. On which days did more than 1% of requests lead to errors?'
 
 # Querys
-sql1 = ("""
+sql1 = (""" 
         select title, count(*) as views 
           from articles 
          inner join log 
              on concat('/article/', articles.slug) = log.path 
           where log.status like '%200%'
-           group by log.path, articles.title 
+           group by articles.title 
            order by views desc limit 3;"""
         )
 
@@ -30,7 +30,7 @@ sql2 = ("""
         )
 
 sql3 = ("""
-        select to_char(mdate,'Mon DD, YYYY'),
+        select to_char(mdate,'FMMonth FMDD, YYYY'),
                concat(mvalue,'%') 
           from (
         select a.day as mdate,
